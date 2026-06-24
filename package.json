@@ -1,0 +1,29 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexBezborodzko/homeWork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AlexBezborodzko/homeWork/issues"
+  },
+  "homepage": "https://github.com/AlexBezborodzko/homeWork#readme",
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "axios": "^1.18.1",
+    "jest": "^30.4.2"
+  },
+  "dependencies": {
+    "ajv-formats": "^3.0.1"
+  }
+}
