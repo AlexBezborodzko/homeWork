@@ -2,27 +2,27 @@
 const arrayStrNumbers = ['123', ,'','456','789.567', 'f556',
     '1.3','33hello', "Infinity", "null", "123n",'1/3','1,3'];
 function formatCurrency(arr){
-    [...arr].map(item => {
+   return [...arr].map(item => {
 
         if(  isFinite(item)&&item!==''){
-            console.log(new Intl.NumberFormat('en-US',
+            return new Intl.NumberFormat('en-US',
             {style: 'currency',
-                currency: 'USD'}).format(item));
+                currency: 'USD'}).format(item);
 
-        }else {console.error(`${item} - это я не смогу преобразовать в валюту`);}
+        }else {return `${item} - это я не смогу преобразовать в валюту`;}
     })
 }
-formatCurrency(arrayStrNumbers)
+const result = formatCurrency(arrayStrNumbers);
+console.log(result.join('\n'));
 
 // Task 2
 
 const array = [123, ,'',0,-0,'789.567', -1,'1.3',undefined, Infinity, null, 123n,0n,NaN,false,true];
 
 function notFalsySort(arr){
-   return console.log(arr.filter(Boolean).sort((a,b) => (b>a)-(a<b)));
-
+    return arr.filter(Boolean).sort((a,b) => (b>a)-(a<b));
 }
-notFalsySort(array);
+console.log(notFalsySort(array));
 
 // Task 3
 
@@ -49,27 +49,30 @@ console.log(groupUsers(users))
 
 // Task 4
 
-const arrayPromise = [
-    function(){return new Promise((resolve) => {
-        setTimeout(()=>resolve(1),3000)
-    });},
-    function(){return new Promise((resolve) => {
-        setTimeout(()=>resolve(2),1000)
-    });},
-    function(){return new Promise((resolve) => {
-        setTimeout(()=>resolve(3),2000)
-    });},
-]
-async function runPromise(arr){
-    for(const item of arr){
-        let res = await item();
-        console.log(res);
-
+function makePromise(value,delay){
+    return function (){
+        return new Promise((resolve)=>{
+            setTimeout(()=>resolve(value),delay);
+        })
     }
-
 }
 
-runPromise(arrayPromise)
+const arrayPromise = [
+    makePromise(1,3000),
+    makePromise(2,1000),
+    makePromise(3,2000),
+]
+async function runPromise(arr){
+    const results = [];
+    for(const item of arr){
+        let res = await item();
+        results.push(res);
+        // console.log(res);
+    }
+    return results;
+}
+
+runPromise(arrayPromise).then(results => console.log(results));
 
 // Task 5
 
