@@ -1,0 +1,9 @@
+.idea
+.github
+node_modules
+playwright-report
+reports
+allure-results
+test-results
+feature.js
+main.js
