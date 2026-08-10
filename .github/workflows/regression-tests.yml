@@ -1,6 +1,7 @@
 name: Full Regression Tests
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]          # после merge в main
   schedule:
