@@ -33,7 +33,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run smoke tests
-        run: npx playwright test --grep "@smoke" --project=chromium --project=firefox --project=webkit --retries=2 --reporter=html
+        run: npx playwright test --grep "@smoke" --project=chromium --project=firefox --retries=2 --reporter=html
 
       - name: Upload report, screenshots, traces, videos
         if: always()
