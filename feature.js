@@ -1,1 +1,1 @@
-console.log("и снова feature.js");
+console.log('и снова feature.js');

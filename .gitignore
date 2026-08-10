@@ -10,4 +10,5 @@ coverage/
 *.log
 package-lock.json
 yarn.lock
-
+main.js
+feature.js

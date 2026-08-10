@@ -44,7 +44,7 @@ export function validateArrayItems(items, validator, itemName = 'Item') {
       validator(item);
     } catch (error) {
       const newError = new Error(
-        `${itemName} at index ${index} failed validation: ${error.message}`,
+        `${itemName} at index ${index} failed validation: ${error.message}`
       );
       newError.cause = error;
       throw newError;

@@ -18,7 +18,7 @@ test.describe('Positive API: /brandsList', () => {
       expect(body).toHaveProperty('brands');
       expect(body.brands.length).toBeGreaterThan(0);
       validateBrands(body.brands);
-    },
+    }
   );
 });
 test.describe('Negative API: /brandsList', () => {
@@ -36,6 +36,6 @@ test.describe('Negative API: /brandsList', () => {
       expect(body.responseCode).toBe(405);
       expect(body).toHaveProperty('message');
       expect(body.message).toContain('This request method is not supported.');
-    },
+    }
   );
 });

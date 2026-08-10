@@ -33,7 +33,7 @@ test.describe('Products Tests', () => {
       await expect(await productDetailsPage.availability).toBeVisible();
       await expect(await productDetailsPage.condition).toBeVisible();
       await expect(await productDetailsPage.brand).toBeVisible();
-    },
+    }
   );
   test('TC18: should filter products by category', { tag: ['@ui', '@regression'] }, async () => {
     await expect(await homePage.categoryContainer).toBeVisible();
@@ -57,7 +57,7 @@ test.describe('Products Tests', () => {
       await expect(await productDetailsPage.formReview).toBeVisible();
       await productDetailsPage.fillReviewFrom();
       await expect(productDetailsPage.successMessage).toHaveText('Thank you for your review.');
-    },
+    }
   );
   test(
     'TC30: should view product details and verify data',
@@ -73,6 +73,6 @@ test.describe('Products Tests', () => {
       expect(details.availability).toContain('In Stock');
       expect(details.condition).toBe('Condition: New');
       expect(details.brand).toBe('Brand: Polo');
-    },
+    }
   );
 });

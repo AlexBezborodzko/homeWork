@@ -48,15 +48,27 @@ export class LoginPage extends BasePage {
       await this.titleMrs.check();
     }
     await this.passwordInput.fill(user.password);
-    if (user.birth_date) {await this.daysSelect.selectOption(user.birth_date);}
-    if (user.birth_month) {await this.monthsSelect.selectOption(user.birth_month);}
-    if (user.birth_year) {await this.yearsSelect.selectOption(user.birth_year);}
+    if (user.birth_date) {
+      await this.daysSelect.selectOption(user.birth_date);
+    }
+    if (user.birth_month) {
+      await this.monthsSelect.selectOption(user.birth_month);
+    }
+    if (user.birth_year) {
+      await this.yearsSelect.selectOption(user.birth_year);
+    }
     await this.firstNameInput.fill(user.firstName || user.first_name);
     await this.lastNameInput.fill(user.lastName || user.last_name);
-    if (user.company) {await this.companyInput.fill(user.company);}
+    if (user.company) {
+      await this.companyInput.fill(user.company);
+    }
     await this.addressInput.fill(user.address || user.address1);
-    if (user.address2) {await this.address2Input.fill(user.address2);}
-    if (user.country) {await this.countrySelect.selectOption(user.country);}
+    if (user.address2) {
+      await this.address2Input.fill(user.address2);
+    }
+    if (user.country) {
+      await this.countrySelect.selectOption(user.country);
+    }
     await this.stateInput.fill(user.state);
     await this.cityInput.fill(user.city);
     await this.zipCodeInput.fill(user.zipCode || user.zipcode);

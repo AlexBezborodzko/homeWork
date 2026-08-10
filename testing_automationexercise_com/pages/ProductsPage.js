@@ -57,7 +57,7 @@ export class ProductsPage extends BasePage {
     this.firstViewProductBtn = page.locator('.choose a').first();
     this.modalContent = page.locator('.modal-content');
     this.modalSuccessMessage = this.modalContent.locator(
-      '.modal-body p:has-text("Your product has been added")',
+      '.modal-body p:has-text("Your product has been added")'
     );
   }
 
