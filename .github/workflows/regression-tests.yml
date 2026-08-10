@@ -1,0 +1,44 @@
+name: Full Regression Tests
+
+on:
+  push:
+    branches: [ main ]          # после merge в main
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint and format checks (quality gate)
+        run: |
+          npm run lint:check || exit 1
+          npm run format:check || exit 1
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run all tests
+        run: npx playwright test --project=chromium --retries=2 --reporter=html
+
+      - name: Upload report and artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-regression-artifacts
+          path: |
+            playwright-report/
+            test-results/
