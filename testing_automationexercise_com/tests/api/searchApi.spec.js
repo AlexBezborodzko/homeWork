@@ -25,7 +25,7 @@ test.describe('API: /searchProduct', () => {
           expect(normalizedName).toContain(SearchApi.normalize(keyword));
         });
       }
-    }
+    },
   );
 
   test(
@@ -38,6 +38,6 @@ test.describe('API: /searchProduct', () => {
       expect(body).toHaveProperty('responseCode');
       expect(body.responseCode).toBe(400);
       expect(body.message).toContain('search_product parameter is missing');
-    }
+    },
   );
 });

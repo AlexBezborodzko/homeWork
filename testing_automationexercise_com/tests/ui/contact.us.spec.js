@@ -21,12 +21,12 @@ test.describe('Contact Us', () => {
         'Alex',
         'Alex@example.com',
         'Test Subject',
-        'This is a test message.'
+        'This is a test message.',
       );
       await contactUsPage.uploadFile('test-data/sample.txt');
       await contactUsPage.acceptAlert();
       await contactUsPage.clickSubmitButton();
       await expect(await contactUsPage.successMessage).toBeVisible();
-    }
+    },
   );
 });

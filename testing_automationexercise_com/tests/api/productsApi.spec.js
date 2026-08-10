@@ -20,7 +20,7 @@ test.describe('API: /productsList', () => {
       expect(Array.isArray(body.products)).toBe(true);
       expect(body.products.length).toBeGreaterThan(0);
       validateProducts(body.products);
-    }
+    },
   );
 
   test(
@@ -32,6 +32,6 @@ test.describe('API: /productsList', () => {
       expect(body).toHaveProperty('responseCode');
       expect(body.responseCode).toBe(405);
       expect(body.message).toContain('This request method is not supported');
-    }
+    },
   );
 });

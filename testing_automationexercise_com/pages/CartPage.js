@@ -49,7 +49,7 @@ export class CartPage extends BasePage {
     const text = await this.getTextFromItem(
       item,
       this.selectors.price,
-      this.selectors.priceFallback
+      this.selectors.priceFallback,
     );
     return parseInt(text.replace(/[^0-9]/g, ''), 10);
   }
@@ -59,7 +59,7 @@ export class CartPage extends BasePage {
     const text = await this.getTextFromItem(
       item,
       this.selectors.quantity,
-      this.selectors.quantityFallback
+      this.selectors.quantityFallback,
     );
     return parseInt(text.replace(/[^0-9]/g, ''), 10);
   }

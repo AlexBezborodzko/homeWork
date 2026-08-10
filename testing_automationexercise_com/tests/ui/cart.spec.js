@@ -40,14 +40,14 @@ test.describe('Cart Tests', () => {
 
       await test.step('Verify prices and totals', async () => {
         expect((await cartPage.getItemPrice(0)) * (await cartPage.getItemQuantity(0))).toBe(
-          await cartPage.getItemTotalPrice(0)
+          await cartPage.getItemTotalPrice(0),
         );
 
         expect((await cartPage.getItemPrice(1)) * (await cartPage.getItemQuantity(1))).toBe(
-          await cartPage.getItemTotalPrice(1)
+          await cartPage.getItemTotalPrice(1),
         );
       });
-    }
+    },
   );
 
   test(
@@ -76,7 +76,7 @@ test.describe('Cart Tests', () => {
       await test.step('Delete account', async () => {
         await homePage.header.goToDeleteAccount();
       });
-    }
+    },
   );
 
   test(
@@ -98,6 +98,6 @@ test.describe('Cart Tests', () => {
         await cartPage.removeItem(0);
         await expect(await cartPage.emptyCartMessage).toBeVisible();
       });
-    }
+    },
   );
 });

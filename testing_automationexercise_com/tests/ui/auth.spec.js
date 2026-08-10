@@ -24,7 +24,7 @@ test.describe('Authentication', () => {
       await loginPage.clickContinue();
       await expect(await homePage.header.loggedInUser).toHaveText(`Logged in as ${newUser.name}`);
       await homePage.header.goToDeleteAccount();
-    }
+    },
   );
 
   test(
@@ -40,7 +40,7 @@ test.describe('Authentication', () => {
       await loginPage.loginUser(newUser.email, newUser.password);
       await expect(await homePage.header.loggedInUser).toHaveText(`Logged in as ${newUser.name}`);
       await homePage.header.goToDeleteAccount();
-    }
+    },
   );
 
   test(
@@ -49,7 +49,7 @@ test.describe('Authentication', () => {
     async ({ newUser }) => {
       await loginPage.loginUser(newUser.email, newUser.password);
       await expect(await loginPage.errorMsg).toBeVisible();
-    }
+    },
   );
 
   test(
@@ -62,7 +62,7 @@ test.describe('Authentication', () => {
       await expect(await homePage.header.loggedInUser).toHaveText(`Logged in as ${newUser.name}`);
       await homePage.header.goToLogout();
       await expect(page).toHaveURL('/login');
-    }
+    },
   );
 
   test(
@@ -72,7 +72,7 @@ test.describe('Authentication', () => {
       await expect(await loginPage.footer.subscriptionText).toBeVisible();
       await loginPage.footer.subscribeWithEmail(newUser.email);
       await expect(await loginPage.footer.subscriptionSuccessMsg).toBeVisible();
-    }
+    },
   );
 
   test(
@@ -83,7 +83,7 @@ test.describe('Authentication', () => {
       await expect(await loginPage.footer.subscriptionText).toBeVisible();
       await loginPage.footer.subscribeWithEmail(newUser.email);
       await expect(await loginPage.footer.subscriptionSuccessMsg).toBeVisible();
-    }
+    },
   );
 });
 test.describe('Combined API + UI', () => {
@@ -117,6 +117,6 @@ test.describe('Combined API + UI', () => {
       await test.step('Verify logged-in user name in UI', async () => {
         await expect(await homePage.header.loggedInUser).toHaveText(`Logged in as ${newUser.name}`);
       });
-    }
+    },
   );
 });

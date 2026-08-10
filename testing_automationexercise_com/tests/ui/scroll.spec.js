@@ -15,7 +15,7 @@ test.describe('scroll', () => {
       await expect(await homePage.scrollUpButton).toBeVisible();
       await homePage.scrollUpButton;
       await expect(await homePage.logo).toBeVisible();
-    }
+    },
   );
   test(
     'TC26: should scroll to footer and back to top without arrow button',
@@ -25,6 +25,6 @@ test.describe('scroll', () => {
       await homePage.scrollToFooter();
       await homePage.scrollToTop();
       await expect(await homePage.logo).toBeVisible();
-    }
+    },
   );
 });

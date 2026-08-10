@@ -15,7 +15,7 @@ test.describe('User API positive', () => {
       expect(createResult.response.status()).toBe(200);
       expect(createResult.body.responseCode).toBe(201);
       expect(createResult.body.message).toBe('User created!');
-    }
+    },
   );
   test(
     'API-08: DELETE /deleteAccount — should delete user account',
@@ -26,7 +26,7 @@ test.describe('User API positive', () => {
       const deleteResult = await loginApi.deleteAccount(newUser.email, newUser.password);
       expect(deleteResult.body.responseCode).toBe(200);
       expect(deleteResult.body.message).toBe('Account deleted!');
-    }
+    },
   );
   test(
     'API-09: PUT /updateAccount — should update user account',
@@ -55,7 +55,7 @@ test.describe('User API positive', () => {
       const updateResult = await loginApi.updateAccount(updatedData);
       expect(updateResult.body.responseCode).toBe(200);
       expect(updateResult.body.message).toBe('User updated!');
-    }
+    },
   );
   test(
     'API-10: POST /login with valid credentials — should return success',
@@ -69,7 +69,7 @@ test.describe('User API positive', () => {
       expect(loginResult.response.status()).toBe(200);
       expect(loginResult.body.responseCode).toBe(200);
       expect(loginResult.body.message).toBe('User exists!');
-    }
+    },
   );
   test(
     'API-11: GET /userDetails by email — should return user details',
@@ -82,7 +82,7 @@ test.describe('User API positive', () => {
       const user = detailsResult.body.user;
       expect(user.email).toBe(newUser.email);
       expect(user.name).toBe(newUser.name);
-    }
+    },
   );
 });
 test.describe('User API negative', () => {
@@ -97,9 +97,9 @@ test.describe('User API negative', () => {
       const loginResult = await loginApi.verifyLoginOnlyPassword('somePassword');
       expect(loginResult.body.responseCode).toBe(400);
       expect(loginResult.body.message).toBe(
-        'Bad request, email or password parameter is missing in POST request.'
+        'Bad request, email or password parameter is missing in POST request.',
       );
-    }
+    },
   );
   test(
     'API-14: DELETE /login — should return 405 Method Not Allowed',
@@ -108,7 +108,7 @@ test.describe('User API negative', () => {
       const loginResult = await loginApi.deleteVerifyLogin();
       expect(loginResult.body.responseCode).toBe(405);
       expect(loginResult.body.message).toContain('This request method is not supported.');
-    }
+    },
   );
   test(
     'API-13: POST /login with invalid credentials — should return error',
@@ -119,6 +119,6 @@ test.describe('User API negative', () => {
       const loginResult = await loginApi.verifyLogin(invalidEmail, invalidPassword);
       expect(loginResult.body.responseCode).toBe(404);
       expect(loginResult.body.message).toContain('User not found!');
-    }
+    },
   );
 });
