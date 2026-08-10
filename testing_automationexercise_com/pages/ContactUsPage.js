@@ -46,7 +46,7 @@ export class ContactUsPage extends BasePage {
   async uploadFile(filePath) {
     const absolutePath = path.isAbsolute(filePath)
       ? filePath
-      : path.join(__dirname, '..', filePath); // один `..` (из pages в testing_automationexercise_com)
+      : path.join(__dirname, '..', filePath);
     await this.fileInput.setInputFiles(absolutePath);
   }
 }

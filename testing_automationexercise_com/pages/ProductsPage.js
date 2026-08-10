@@ -1,50 +1,3 @@
-// import {BasePage} from './BasePage.js';
-// import {ProductDetailsPage} from './ProductDetailsPage.js';
-// import {CartModal} from '../components/CartModal.js';
-//
-// export class ProductsPage extends BasePage {
-//     constructor(page) {
-//         super(page);
-//
-//         this.productsTitle = page.locator('.title:has-text("All Products")');
-//         this.productCards = page.locator('.product-image-wrapper');
-//         this.firstViewProductBtn = page.locator('.choose a').first();
-//         this.modalContent = page.locator('.modal-content');
-//         this.modalSuccessMessage = this.modalContent.locator('.modal-body p:has-text("Your product has been added")');
-//     }
-//
-//     getProductCard(productName) {
-//         return this.page.locator('.product-image-wrapper', {
-//             has: this.page.locator(`.productinfo p:has-text("${productName}")`),
-//         }).first();
-//     }
-//
-//     async getProductCount() {
-//         return await this.productCards.count();
-//     }
-//
-//     async waitForLoaded() {
-//         await this.productsTitle.waitFor({state: 'visible'});
-//     }
-//
-//     async clickViewFirstProduct() {
-//         await this.firstViewProductBtn.click();
-//         return new ProductDetailsPage(this.page);
-//     }
-//
-//     async addProductToCartByName(productName) {
-//         const card = this.getProductCard(productName);
-//         await card.waitFor({state: 'attached', timeout: 5000});
-//         const addButton = card
-//             .locator('.productinfo:has-text("Add to cart")')
-//             .first();
-//         await addButton.waitFor({state: 'visible', timeout: 5000});
-//         await addButton.click({force: true});
-//         await this.modalContent.waitFor({state: 'visible'});
-//         await this.modalSuccessMessage.waitFor({state: 'visible'});
-//         return new CartModal(this.page);
-//     }
-// }
 import { BasePage } from './BasePage.js';
 import { ProductDetailsPage } from './ProductDetailsPage.js';
 import { CartModal } from '../components/CartModal.js';
@@ -57,7 +10,7 @@ export class ProductsPage extends BasePage {
     this.firstViewProductBtn = page.locator('.choose a').first();
     this.modalContent = page.locator('.modal-content');
     this.modalSuccessMessage = this.modalContent.locator(
-      '.modal-body p:has-text("Your product has been added")'
+      '.modal-body p:has-text("Your product has been added")',
     );
   }
 
