@@ -2,10 +2,26 @@ name: Full Regression Tests
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
   push:
-    branches: [ main ]          # после merge в main
+    branches: [ main ]
+    paths:
+      - 'tests/** '
   schedule:
     - cron: '0 0 * * *'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'tests/**/*.spec.js'
 
 jobs:
   regression:
