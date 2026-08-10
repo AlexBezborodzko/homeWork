@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { LoginAPI } from '../../api/LoginAPI.js';
+import { LoginAPI } from '../../api/LoginApi.js';
 import { test } from '../../fixtures/fixture.js';
 
 test.describe('User API positive', () => {
