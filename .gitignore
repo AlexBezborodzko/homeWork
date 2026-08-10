@@ -1,0 +1,13 @@
+node_modules/
+playwright-report/
+test-results/
+allure-results/
+reports/
+dist/
+coverage/
+.idea/
+.vscode/
+*.log
+package-lock.json
+yarn.lock
+
