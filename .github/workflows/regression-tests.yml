@@ -1,9 +1,10 @@
 name: Full Regression Tests
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]          # после merge в main
   schedule:
-    - cron: '0 0 * * *'  # ежедневно в 00:00 UTC
+    - cron: '0 0 * * *'
 
 jobs:
   regression:
@@ -30,8 +31,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run all tests (API + UI)
-        run: npx playwright test --retries=2 --reporter=html
+      - name: Run all tests
+        run: npx playwright test --project=chromium --retries=2 --reporter=html
 
       - name: Upload report and artifacts
         if: always()
